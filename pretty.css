@@ -1,1 +1,17 @@
 
+#topHeader {
+    border: 1px solid;
+    margin-bottom: 30px;
+    padding: 10px;
+    padding-left: 30px;
+
+}
+
+
+
+#cities {
+    float: left;
+    margin-left: 0px auto;
+    border: 1px solid;
+}
+
