@@ -27,3 +27,11 @@
 #forecast {
     clear: left;
 }
+
+.casts {
+    float: left;
+    margin: 20px;
+    border: 1px solid;
+    display: none;
+    padding: 10px;
+}

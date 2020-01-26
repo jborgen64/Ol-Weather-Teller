@@ -11,13 +11,18 @@ var cityGet;
 
 //on click grab city name from text box
 
-$("#search").on("click", function (event) {
+$(".search").on("click", function (event) {
     event.preventDefault();
 
     //clear div if anything is in it from previous search
     $("#currentDisplay").hide(200);
     $("#currentDisplay").empty();
-    
+
+
+  //if re-searched clear previous search display
+    $(".casts").hide(200);
+    $(".casts").empty();
+
 
     var cityGet = $("#city").val().trim();
     console.log(cityGet);
@@ -63,6 +68,8 @@ $("#search").on("click", function (event) {
       var historyBtn = $("<button>").text(city);
       $("#searchHistory").prepend(historyBtn);
 
+    
+
         //locally store search results
         localStorage.setItem("place", city);
         console.log(localStorage);
@@ -83,29 +90,121 @@ $("#search").on("click", function (event) {
 
         //first display for 5 day forecast
 
+        //date
+        var date1 = response.list[2].dt_txt;
+        console.log(date1)
+        var dateTempDisp1 = $("<p>").text(date1);
+        $("#firstForecast").prepend(dateTempDisp1);
+
         //temp
-          var forTemp1 = response.list[0].main.temp;
+          var forTemp1 = response.list[2].main.temp;
           console.log(forTemp1);
-          var forTempDisp1 = $("<p>").text(forTemp1);
-          $("#firstForecast").append("Temp: " + forTempDisp1);
+          var forTempDisp1 = $("<p>").text("Temp: " + forTemp1);
+          $("#firstForecast").append(forTempDisp1);
 
         //humidity
-        var hum1 = response.list[0].main[0].humidity;
+        var hum1 = response.list[2].main.humidity;
         console.log(hum1);
-        var forhumDisp1 = $("<p>").text(hum1);
-        $("#firstForecast").append("humidity: " + forhumDisp1);
+        var forhumDisp1 = $("<p>").text("Humidity: " + hum1);
+        $("#firstForecast").append(forhumDisp1);
+
+        $("#firstForecast").show(1000);
+         //second display for 5 day forecast
+
+        //date
+        var date2 = response.list[10].dt_txt;
+        console.log(date2)
+        var dateTempDisp2 = $("<p>").text(date2);
+        $("#secondForecast").prepend(dateTempDisp2);
+
+        //temp
+          var forTemp2 = response.list[10].main.temp;
+          console.log(forTemp2);
+          var forTempDisp2 = $("<p>").text("Temp: " + forTemp2);
+          $("#secondForecast").append(forTempDisp2);
+
+        //humidity
+        var hum2 = response.list[10].main.humidity;
+        console.log(hum2);
+        var forhumDisp2 = $("<p>").text("Humidity: " + hum2);
+        $("#secondForecast").append(forhumDisp2);
+        
+        
+        $("#secondForecast").show(1000);
+         //third display for 5 day forecast
+
+        //date
+        var date3 = response.list[20].dt_txt;
+        console.log(date3)
+        var dateTempDisp3 = $("<p>").text(date3);
+        $("#thirdForecast").prepend(dateTempDisp3);
+
+        //temp
+          var forTemp3 = response.list[20].main.temp;
+          console.log(forTemp3);
+          var forTempDisp3 = $("<p>").text("Temp: " + forTemp3);
+          $("#thirdForecast").append(forTempDisp3);
+
+        //humidity
+        var hum3 = response.list[20].main.humidity;
+        console.log(hum3);
+        var forhumDisp3 = $("<p>").text("Humidity: " + hum3);
+        $("#thirdForecast").append(forhumDisp3);
+        
+        
+        $("#thirdForecast").show(1000);
+         //fourth display for 5 day forecast
+
+        //date
+        var date4 = response.list[30].dt_txt;
+        console.log(date4)
+        var dateTempDisp4 = $("<p>").text(date4);
+        $("#fourthForecast").prepend(dateTempDisp4);
+
+        //temp
+          var forTemp4 = response.list[30].main.temp;
+          console.log(forTemp4);
+          var forTempDisp4 = $("<p>").text("Temp: " + forTemp4);
+          $("#fourthForecast").append(forTempDisp4);
+
+        //humidity
+        var hum4 = response.list[30].main.humidity;
+        console.log(hum4);
+        var forhumDisp4 = $("<p>").text("Humidity: " + hum4);
+        $("#fourthForecast").append(forhumDisp4);
+        
+        
+        $("#fourthForecast").show(1000);
+         //first display for 5 day forecast
+
+        //date
+        var date5 = response.list[39].dt_txt;
+        console.log(date5)
+        var dateTempDisp5 = $("<p>").text(date5);
+        $("#fifthForecast").prepend(dateTempDisp5);
+
+        //temp
+          var forTemp5 = response.list[39].main.temp;
+          console.log(forTemp5);
+          var forTempDisp5 = $("<p>").text("Temp: " + forTemp5);
+          $("#fifthForecast").append(forTempDisp5);
+
+        //humidity
+        var hum5 = response.list[39].main.humidity;
+        console.log(hum5);
+        var forhumDisp5 = $("<p>").text("Humidity: " + hum5);
+        $("#fifthForecast").append(forhumDisp5);
+
+        $("#fifthForecast").show(1000);
         
         });
 
 });
 
+
     //get item from local storage
    var gotten = localStorage.getItem("place");
    var historyBtn = $("<button>").text(gotten);
       $("#searchHistory").prepend(historyBtn);
-
-
-
-//Also have a function that diplays weather for 5 day forecast
-    //on click automatically do that?
-
+     
+  
