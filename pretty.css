@@ -7,11 +7,23 @@
 
 }
 
-
-
 #cities {
     float: left;
     margin-left: 0px auto;
     border: 1px solid;
+    clear: right;
 }
 
+#currentDisplay {
+    display: none;
+    float: left;
+    border: 1px solid;
+    padding: 30px;
+    padding-left: 30px;
+    margin: 10px;
+    clear: right;
+}
+
+#forecast {
+    clear: left;
+}

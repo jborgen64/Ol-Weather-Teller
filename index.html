@@ -13,39 +13,31 @@
 </head>
 
 <body>
+
 <h1 id="topHeader">Ol Weather Teller</h1>
 
         <div id="cities">
 
             <nav class="navbar navbar-light bg-light">
                 <form class="form-inline">
-                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  <input class="form-control mr-sm-2" id="city" type="text" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0" id="search" type="submit">Search</button>
                 </form>
             </nav>
 
-
-            <div class="list-group fixed-left">
-                <button type="button" class="list-group-item list-group-item-action">Cras justo odio</button>
-                <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-                <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
-                <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
-                <button type="button" class="list-group-item list-group-item-action">Vestibulum at eros</button>
-            </div>
+            <div class="list-group fixed-left" id="searchHistory"></div>
 
         </div>
 
+        <div id="currentDisplay"></div>
 
-       
-
-       
-
-  
-
-
-
-
-
+        <div id="forecast">
+            <div id="firstForecast"></div>
+            <div id="secondForecast"></div>
+            <div id="thirdForecast"></div>
+            <div id="fourthForecast"></div>
+            <div id="fifthForecast"></div>
+        </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="smarts.js"></script>
