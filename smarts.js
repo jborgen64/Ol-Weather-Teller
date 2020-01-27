@@ -8,7 +8,7 @@
 
 var queryURL = "api.openweathermap.org/data/2.5/weather?q=" + cityGet + "&APPID=c6974ef21f89091e901a5ee288cf4f5c"
 var cityGet;
-
+var cityStore = [];
 //on click grab city name from text box
 
 $(".search").on("click", function (event) {
@@ -71,9 +71,17 @@ $(".search").on("click", function (event) {
     
 
         //locally store search results
-        localStorage.setItem("place", city);
+        cityStore.push(city);
+        var cityObj = {
+          place1: cityStore[0],
+          place2: cityStore[1],
+          place3: cityStore[2],
+          place4: cityStore[3]
+        }
+        localStorage.setItem("place", JSON.stringify(cityObj));
         console.log(localStorage);
       });
+
 
       //calling 5 day forecast from API
       var queryURL5day = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityGet + "&units=imperial&APPID=d62b29c9b9eeaab0139cc3a11a3896b9"
@@ -201,10 +209,21 @@ $(".search").on("click", function (event) {
 
 });
 
+       //get item from local storage up to four stored items
+       var gotten = JSON.parse(localStorage.getItem("place"));
+       console.log(gotten);
+       var historyBtn1 = $("<button>").text(gotten.place1);
+       var historyBtn2 = $("<button>").text(gotten.place2);
+       var historyBtn3 = $("<button>").text(gotten.place3);
+       var historyBtn4 = $("<button>").text(gotten.place4);
+          $("#searchHistory").prepend(historyBtn1);
+          $("#searchHistory").prepend(historyBtn2);
+          $("#searchHistory").prepend(historyBtn3);
+          $("#searchHistory").prepend(historyBtn4);
+    
+        
+       
+ 
 
-    //get item from local storage
-   var gotten = localStorage.getItem("place");
-   var historyBtn = $("<button>").text(gotten);
-      $("#searchHistory").prepend(historyBtn);
      
   
