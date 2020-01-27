@@ -11,8 +11,10 @@ var cityGet;
 var cityStore = [];
 //on click grab city name from text box
 
-$(".search").on("click", function (event) {
-    event.preventDefault();
+//$(".search").on("click", function (event) {
+   // event.preventDefault();
+
+    function searchClick() {
 
     //clear div if anything is in it from previous search
     $("#currentDisplay").hide(200);
@@ -77,7 +79,7 @@ $(".search").on("click", function (event) {
           place2: cityStore[1],
           place3: cityStore[2],
           place4: cityStore[3]
-        }
+        };
         localStorage.setItem("place", JSON.stringify(cityObj));
         console.log(localStorage);
       });
@@ -207,6 +209,11 @@ $(".search").on("click", function (event) {
         
         });
 
+};
+
+$(".search").on("click", function (event) {
+    event.preventDefault();
+    searchClick()
 });
 
        //get item from local storage up to four stored items
@@ -220,7 +227,32 @@ $(".search").on("click", function (event) {
           $("#searchHistory").prepend(historyBtn2);
           $("#searchHistory").prepend(historyBtn3);
           $("#searchHistory").prepend(historyBtn4);
-    
+
+          //get search button clicks to generate data result
+
+    historyBtn1.on("click", function() {
+      btnText = historyBtn1.text().trim();
+      $("#city").val((btnText))
+      searchClick();
+    })
+
+    historyBtn2.on("click", function() {
+      btnText = historyBtn2.text().trim();
+      $("#city").val((btnText))
+      searchClick();
+    })
+
+    historyBtn3.on("click", function() {
+      btnText = historyBtn3.text().trim();
+      $("#city").val((btnText))
+      searchClick();
+    })
+
+    historyBtn4.on("click", function() {
+      btnText = historyBtn4.text().trim();
+      $("#city").val((btnText))
+      searchClick();
+    })
         
        
  
