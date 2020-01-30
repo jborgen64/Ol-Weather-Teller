@@ -29,7 +29,7 @@ var cityStore = [];
     var cityGet = $("#city").val().trim();
     console.log(cityGet);
 
-    var queryURLcurrent = "http://api.openweathermap.org/data/2.5/weather?q=" + cityGet + "&units=imperial&APPID=d62b29c9b9eeaab0139cc3a11a3896b9"
+    var queryURLcurrent = "https://api.openweathermap.org/data/2.5/weather?q=" + cityGet + "&units=imperial&APPID=d62b29c9b9eeaab0139cc3a11a3896b9"
     
     //AJAX call from Open Weather API
 
@@ -86,7 +86,7 @@ var cityStore = [];
 
 
       //calling 5 day forecast from API
-      var queryURL5day = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityGet + "&units=imperial&APPID=d62b29c9b9eeaab0139cc3a11a3896b9"
+      var queryURL5day = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityGet + "&units=imperial&APPID=d62b29c9b9eeaab0139cc3a11a3896b9"
 
       $.ajax({
         url: queryURL5day,
